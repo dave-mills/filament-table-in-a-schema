@@ -3,7 +3,6 @@
 namespace DaveMills\FilamentTableInASchema;
 
 use Filament\Schemas\Components\Component;
-use Filament\Tables\Table;
 
 class TableInSchema extends Component
 {
