@@ -1,5 +1,6 @@
 
 <div>
 
-    WOAH THERE - You found the Table In A Schema package!
+    <livewire:filament-table-in-a-schema
+    />
 </div>

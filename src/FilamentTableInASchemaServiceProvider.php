@@ -2,6 +2,7 @@
 
 namespace DaveMills\FilamentTableInASchema;
 
+use Livewire\Livewire;
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
 
@@ -19,5 +20,8 @@ class FilamentTableInASchemaServiceProvider extends PackageServiceProvider
 
     public function packageRegistered(): void {}
 
-    public function packageBooted(): void {}
+    public function packageBooted(): void
+    {
+        Livewire::component('filament-table-in-a-schema', FilamentTableInASchema::class);
+    }
 }
