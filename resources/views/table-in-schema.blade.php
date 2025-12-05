@@ -1,6 +1,31 @@
+@php
+    use DaveMills\FilamentTableInASchema\FilamentTableInASchema;$extraAttributes = $getExtraAttributes();
+    $id = $getId();
+@endphp
 
-<div>
+@if (filled($id) || filled($extraAttributes))
+    {!! '<div' !!}
+    {{-- Avoid formatting issues with unclosed elements --}}
+    {{
+        $attributes
+            ->merge([
+                'id' => $id,
+            ], escape: false)
+            ->merge($extraAttributes, escape: false)
+    }}
+    >
+@endif
 
-    <livewire:filament-table-in-a-schema
-    />
-</div>
+@if (filled($key = $getLivewireKey()))
+    @livewire(FilamentTableInASchema::class, [
+    'table' => $getTable()
+], key($key))
+@else
+    @livewire(FilamentTableInASchema::class, [
+    'table' => $getTable()
+])
+@endif
+@if (filled($id) || filled($extraAttributes))
+    {!! '</div>' !!}
+    {{-- Avoid formatting issues with unclosed elements --}}
+@endif
