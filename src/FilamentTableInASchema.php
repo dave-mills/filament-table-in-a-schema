@@ -2,7 +2,6 @@
 
 namespace DaveMills\FilamentTableInASchema;
 
-use Closure;
 use Filament\Actions\Concerns\InteractsWithActions;
 use Filament\Actions\Contracts\HasActions;
 use Filament\Schemas\Concerns\InteractsWithSchemas;
@@ -16,12 +15,13 @@ use Livewire\Component;
 
 class FilamentTableInASchema extends Component implements HasActions, HasSchemas, HasTable
 {
+    use EvaluatesClosures;
     use InteractsWithActions;
     use InteractsWithSchemas;
     use InteractsWithTable;
-    use EvaluatesClosures;
 
     public ?Model $record;
+
     protected \Closure $makeTable;
 
     public function mount(\Closure $table): void
