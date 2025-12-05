@@ -33,7 +33,4 @@ class TableInSchema extends Component
     {
         return $this->table;
     }
-
-
-
 }
